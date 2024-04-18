@@ -1,0 +1,17 @@
+@import url("../../../index.css");
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.left-side,
+.right-side {
+  display: flex;
+}
+
+li {
+  margin: 0.5rem 3rem;
+  z-index: 0;
+}
