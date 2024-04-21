@@ -1,27 +1,31 @@
 @import url("../../../index.css");
 
 .subject {
-  width: 150px;
+  width: 250px;
   height: 150px;
   text-align: center;
   margin: auto;
 }
 
 .subjectcode {
-  width: 100px;
-  height: 70px;
-  border: 1px solid red;
-  font-size: 0.8rem;
-  font-weight: bold;
+  width: 150px;
+  height: 120px;
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+  font-weight: bolder;
   margin: auto;
-  padding-top: 1.5rem;
+  padding-top: 3rem;
   border-radius: 0.5rem;
 }
 
 .subjectinfo {
   display: flex;
   align-items: center;
-  width: 50px;
+  flex-direction: column;
+}
+
+.subjectinfo h4 {
+  margin-top: -0.5rem;
 }
 
 .subjectwrapper {
@@ -31,5 +35,5 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 4rem;
+  gap: 2rem;
 }

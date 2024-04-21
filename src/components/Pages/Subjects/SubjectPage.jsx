@@ -13,7 +13,6 @@ const SubjectPage = () => {
             key={index}
             name={subject.name}
             subjectcode={subject.subject_code}
-            units={subject.units}
           />
         );
       })}
