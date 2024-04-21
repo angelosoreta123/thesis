@@ -1,4 +1,4 @@
-@import url("../../../index.css");
+@import url("../../index.css");
 
 .card2upper {
   display: flex;
@@ -36,6 +36,16 @@
   height: 270px;
   grid-template-rows: repeat(3, 1fr);
   margin: auto;
+}
+
+.subIcons {
+  border: 1px solid red;
+  height: 60px;
+  width: 70px;
+  margin: auto;
+  text-align: center;
+  padding-top: 1rem;
+  border-radius: 0.5rem;
 }
 
 .subicon1,

@@ -1,4 +1,4 @@
-@import url("../../../index.css");
+@import url("../../index.css");
 
 .nextsubContainer {
   display: grid;
@@ -25,4 +25,10 @@
   height: 270px;
   grid-template-rows: repeat(3, 1fr);
   margin: auto;
+}
+
+.cardC h1,
+.cardD h1 {
+  margin-left: 1rem;
+  font-weight: 550;
 }

@@ -2,15 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Dashboard from "./components/Main Contents/Dashboard/Dashboard";
-import Subjects from "./components/Main Contents/Subjects/Subjects";
-import Semester from "./components/Main Contents/Semester/Semester";
-import Curriculum from "./components/Main Contents/Curriculum/Curriculum";
-import MyProfile from "./components/Main Contents/MyProfile/MyProfile";
-import Logout from "./components/Main Contents/Logout/Logout";
+import Dashboard from "./components/Pages/Dashboard/Dashboard";
+import Subjects from "./components/Pages/Subjects/Subjects";
+import Semester from "./components/Pages/Semester/Semester";
+import Curriculum from "./components/Pages/Curriculum/Curriculum";
+import MyProfile from "./components/Pages/MyProfile/MyProfile";
 import Login from "./components/AccManage/Login";
 import Register from "./components/AccManage/Register";
 import Forgot from "./components/AccManage/Forgot";
+import Subjectstab from "./components/Pages/Subjects/Subjectstab";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
 
   {
     path: "/Subjects",
-    element: <Subjects />,
+    element: <Subjectstab />,
   },
 
   {
@@ -36,11 +36,6 @@ const router = createBrowserRouter([
   {
     path: "/MyProfile",
     element: <MyProfile />,
-  },
-
-  {
-    path: "/Logout",
-    element: <Logout />,
   },
 
   {

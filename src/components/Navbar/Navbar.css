@@ -1,4 +1,4 @@
-@import url("../../../index.css");
+@import url("../../index.css");
 
 .navBar {
   display: flex;
@@ -14,4 +14,15 @@
 li {
   margin: 0.5rem 3rem;
   z-index: 0;
+}
+
+.navBar ul li a:hover {
+  color: var(--color-border);
+}
+
+hr {
+  border: none;
+  width: 100%;
+  height: 3px;
+  background: rgb(221, 38, 38);
 }

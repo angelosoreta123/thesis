@@ -47,3 +47,9 @@
   border-radius: 1rem;
   margin-top: -0.5rem;
 }
+
+.cardA h1,
+.cardB h1 {
+  margin-left: 1rem;
+  font-weight: 550;
+}

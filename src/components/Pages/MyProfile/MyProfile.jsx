@@ -1,9 +1,8 @@
 import React from "react";
-import "./Subjects.css";
 import Header from "../../Header/Header";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../Navbar/Navbar";
 
-const Subjects = () => {
+const MyProfile = () => {
   return (
     <div>
       <Header />
@@ -13,4 +12,4 @@ const Subjects = () => {
   );
 };
 
-export default Subjects;
+export default MyProfile;

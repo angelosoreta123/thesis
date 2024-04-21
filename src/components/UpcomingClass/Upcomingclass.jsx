@@ -1,13 +1,13 @@
 import React from "react";
-import "././Upcomingclass.css";
-import SubIcon from "../../../assets/subjIcon.jpg";
+import "./Upcomingclass.css";
+import SubIcon from "../../assets/subjIcon.jpg";
 
 const Upcomingclass = () => {
   return (
     <div>
       <div className="card4upper">
         <h2>Upcoming Class</h2>
-        <i class="bx bx-dots-horizontal-rounded"></i>
+        <i className="bx bx-dots-horizontal-rounded"></i>
       </div>
       <div className="nextsubContainer">
         <div className="nextsubIcon">
@@ -30,7 +30,7 @@ const Upcomingclass = () => {
               <div className="substatus1">
                 <h3>
                   {" "}
-                  <i class="bx bxs-circle">Online</i>
+                  <i className="bx bxs-circle">Online</i>
                 </h3>
               </div>
             </div>
@@ -46,7 +46,7 @@ const Upcomingclass = () => {
               <div className="substatus1">
                 <h3>
                   {" "}
-                  <i class="bx bxs-circle">Online</i>
+                  <i className="bx bxs-circle">Online</i>
                 </h3>
               </div>
             </div>
@@ -54,7 +54,7 @@ const Upcomingclass = () => {
           <div className="nextsubcontainer3">
             <h3>
               {" "}
-              Show All <i class="bx bxs-down-arrow"></i>
+              Show All <i className="bx bxs-down-arrow"></i>
             </h3>
           </div>
         </div>

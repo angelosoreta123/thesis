@@ -42,30 +42,6 @@ h4 {
   flex-direction: column;
 }
 
-.card1upper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-inline: 1rem;
-}
-
-.thislastSem {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.semPic {
-  max-width: 1000px;
-  height: 400px;
-  padding-inline: 2rem;
-  margin: auto;
-}
-
-#imgSem {
-  width: 100%;
-  height: 100%;
-}
-
 .card2 {
   height: 350px;
 }

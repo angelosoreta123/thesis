@@ -1,9 +1,9 @@
 import React from "react";
 import "./Semester.css";
 import Header from "../../Header/Header";
-import Navbar from "../Navbar/Navbar";
-import Recentsub from "../RecentSubj/Recentsub";
-import Upcomingclass from "../UpcomingClass/Upcomingclass";
+import Recentsub from "../../RecentSubj/Recentsub";
+import Upcomingclass from "../../UpcomingClass/Upcomingclass";
+import Navbar from "../../Navbar/Navbar";
 
 const Semester = () => {
   return (
