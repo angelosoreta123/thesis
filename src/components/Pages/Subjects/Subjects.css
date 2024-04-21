@@ -15,17 +15,13 @@
   font-weight: bolder;
   margin: auto;
   padding-top: 3rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 }
 
 .subjectinfo {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-.subjectinfo h4 {
-  margin-top: -0.5rem;
 }
 
 .subjectwrapper {
