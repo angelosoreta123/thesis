@@ -2,6 +2,8 @@ import React from "react";
 import "./Semester.css";
 import Header from "../../Header/Header";
 import Navbar from "../Navbar/Navbar";
+import Recentsub from "../RecentSubj/Recentsub";
+import Upcomingclass from "../UpcomingClass/Upcomingclass";
 
 const Semester = () => {
   return (
@@ -20,10 +22,10 @@ const Semester = () => {
         <div className="cardB">
           <div className="right-sideSub">
             <div className="upper-partSub">
-              <h2>Recent Subjects</h2>
+              <Recentsub />
             </div>
             <div className="lower-partSub">
-              <h2>Upcoming Class</h2>
+              <Upcomingclass />
             </div>
           </div>
         </div>

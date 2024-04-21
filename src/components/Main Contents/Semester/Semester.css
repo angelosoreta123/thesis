@@ -1,28 +1,7 @@
 @import url("../../../index.css");
 
-h1 {
-  max-width: 1720px;
-  margin: auto;
-  padding-top: 1rem;
-  font-size: var(--font-size-h1);
-}
-
-h2 {
-  font-size: var(--font-size-h2);
-  margin: 1rem;
-}
-
-.container {
-  max-width: 1720px;
-  margin: auto;
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: 3fr 1.5fr;
-  gap: 1rem;
-}
-
 .cardA {
-  height: 755px;
+  height: 720px;
   border: 1px solid var(--color-border);
   border-radius: 1rem;
 }
@@ -39,7 +18,7 @@ h2 {
 .firstSem,
 .secondSem {
   max-width: 1000px;
-  height: 340px;
+  height: 320px;
   margin: auto;
   border: 1px solid var(--color-border);
   text-align: center;
@@ -47,7 +26,7 @@ h2 {
 }
 
 .cardB {
-  height: 700px;
+  height: 720px;
 }
 
 .right-sideSub {
@@ -57,9 +36,14 @@ h2 {
   margin-top: 1rem;
 }
 
-.upper-partSub,
-.lower-partSub {
+.upper-partSub {
   height: 350px;
   border: 1px solid var(--color-border);
   border-radius: 1rem;
+}
+.lower-partSub {
+  height: 330px;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  margin-top: -0.5rem;
 }

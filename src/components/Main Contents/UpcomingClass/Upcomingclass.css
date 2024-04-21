@@ -1,0 +1,28 @@
+@import url("../../../index.css");
+
+.nextsubContainer {
+  display: grid;
+  max-width: 400px;
+  margin: auto;
+  grid-template-columns: 1fr 3fr;
+  margin-top: 2rem;
+}
+
+.nextsubcontainer3 {
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.nextsubcontainer3 h3 {
+  color: green;
+  font-size: 0.9rem;
+}
+
+.nextsubIcon {
+  display: grid;
+  max-width: 100px;
+  height: 270px;
+  grid-template-rows: repeat(3, 1fr);
+  margin: auto;
+}

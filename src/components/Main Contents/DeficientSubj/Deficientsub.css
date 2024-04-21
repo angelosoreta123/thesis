@@ -1,0 +1,42 @@
+@import url("../../../index.css");
+
+.card3upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 1rem;
+}
+
+.card3lower {
+  display: grid;
+  max-width: 1000px;
+  height: 110px;
+  margin: auto;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+}
+
+.sub1,
+.sub2,
+.sub3,
+.sub4,
+.sub5 {
+  max-width: 180px;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.subname1,
+.subname2,
+.subname3,
+.subname4,
+.subname5 {
+  margin-left: 1rem;
+}
+
+.subjname {
+  display: grid;
+  max-width: 1000px;
+  margin: auto;
+  grid-template-columns: repeat(5, 1fr);
+}
