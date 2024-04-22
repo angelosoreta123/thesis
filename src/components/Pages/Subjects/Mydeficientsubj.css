@@ -1,0 +1,26 @@
+@import url("../../../index.css");
+
+.defsubjwrapper {
+  width: 1720px;
+  margin: auto;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.iconcontainer {
+  display: flex;
+  width: 150px;
+  height: 120px;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  margin-left: 2.8rem;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.nodeftext {
+  width: 1720px;
+  margin: auto;
+  margin-top: 1rem;
+}

@@ -18,6 +18,10 @@
   border-radius: 1rem;
 }
 
+.subjectcode:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
 .subjectinfo {
   display: flex;
   align-items: center;
