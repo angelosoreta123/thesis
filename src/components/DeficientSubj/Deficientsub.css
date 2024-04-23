@@ -8,12 +8,13 @@
 }
 
 .card3lower {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 2rem;
   max-width: 1000px;
   height: 110px;
   margin: auto;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.5rem;
 }
 
 .sub1,

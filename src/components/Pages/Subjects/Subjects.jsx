@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import "./Subjects.css";
 
 const Subjects = ({ name, subjectcode, onClick }) => {
