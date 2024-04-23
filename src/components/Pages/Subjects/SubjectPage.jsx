@@ -14,17 +14,12 @@ const SubjectPage = () => {
   };
 
   const handleSubjectClick = (subjectCode, name) => {
-    if (
-      !selectedSubjects.some(
-        (subject) => subject.code === subjectCode && subject.name === name
-      )
-    ) {
-      setSelectedSubjects([
-        ...selectedSubjects,
-        { code: subjectCode, name: name },
-      ]);
-      updateLocalStorage(selectedSubjects);
-    }
+    const updatedSubjects = [
+      ...selectedSubjects,
+      { code: subjectCode, name: name },
+    ];
+    setSelectedSubjects(updatedSubjects);
+    updateLocalStorage(updatedSubjects);
   };
 
   const removeSubject = (subjectCode, name) => {
