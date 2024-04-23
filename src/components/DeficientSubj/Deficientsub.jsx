@@ -17,7 +17,6 @@ const Deficientsub = () => {
         </a>
       </div>
       <div className="card3lower">
-        {/* Pass showButtons prop with value true */}
         <Mydeficientsubj
           selectedSubjects={displayedSubjects}
           className="dashboarddefsubj"

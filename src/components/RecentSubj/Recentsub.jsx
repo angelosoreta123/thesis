@@ -2,14 +2,6 @@ import React from "react";
 import "./Recentsub.css";
 
 const Recentsub = () => {
-  // Function to extract initials from a string
-  const getInitials = (name) => {
-    return name
-      .split(" ") // Split the name into words
-      .map((word) => word.charAt(0)) // Get the first character of each word
-      .join(""); // Join the initials into a single string
-  };
-
   return (
     <div>
       <div className="card2upper">
@@ -18,15 +10,14 @@ const Recentsub = () => {
       </div>
       <div className="recentsubContainer">
         <div className="recentsubIcon">
-          {/* Replace each SubIcon with initials */}
           <div className="subicon1">
-            <div className="subIcons">{getInitials("Subject Name")}</div>
+            <div className="subIcons"></div>
           </div>
           <div className="subicon2">
-            <div className="subIcons">{getInitials("Subject Name")}</div>
+            <div className="subIcons"></div>
           </div>
           <div className="subicon3">
-            <div className="subIcons">{getInitials("Subject Name")}</div>
+            <div className="subIcons"></div>
           </div>
         </div>
         <div className="recentsubName">

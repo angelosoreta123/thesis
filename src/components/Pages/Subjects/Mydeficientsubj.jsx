@@ -2,6 +2,13 @@ import React from "react";
 import "./Mydeficientsubj.css";
 
 const Mydeficientsubj = ({ selectedSubjects, removeSubject, className }) => {
+  const handleRemoveSubject = (code, name) => {
+    const confirmRemove = window.confirm("Are you sure you want to remove it?");
+    if (confirmRemove) {
+      removeSubject(code, name);
+    }
+  };
+
   return (
     <div className={`defsubjwrapper ${className}`}>
       {selectedSubjects &&
@@ -14,7 +21,7 @@ const Mydeficientsubj = ({ selectedSubjects, removeSubject, className }) => {
             <div className="addremove">
               <button id="finishbtn">Finished</button>
               <button
-                onClick={() => removeSubject(subject.code, subject.name)}
+                onClick={() => handleRemoveSubject(subject.code, subject.name)}
                 id="removebtn"
               >
                 Remove
