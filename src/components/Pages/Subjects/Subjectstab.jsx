@@ -10,7 +10,7 @@ const Subjectstab = () => {
       <Header />
       <Navbar />
       <h1>My Deficient Subjects</h1>
-      <Mydeficientsubj />
+      <Mydeficientsubj className="subjectsdefsub" />
       <SubjectPage />
     </div>
   );

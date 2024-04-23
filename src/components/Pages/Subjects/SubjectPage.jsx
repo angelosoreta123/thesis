@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Subjects from "./Subjects";
 import Mydeficientsubj from "./Mydeficientsubj";
 import all_subject from "../../../assets/Subjectlist";
 import "./Subjects.css";
 
 const SubjectPage = () => {
-  const [selectedSubjects, setSelectedSubjects] = useState(
-    JSON.parse(localStorage.getItem("selectedSubjects")) || []
-  );
+  const [selectedSubjects, setSelectedSubjects] = useState([]);
+
+  useEffect(() => {
+    const storedSubjects = JSON.parse(localStorage.getItem("selectedSubjects"));
+    if (storedSubjects) {
+      setSelectedSubjects(storedSubjects);
+    }
+  }, []);
 
   const updateLocalStorage = (subjects) => {
     localStorage.setItem("selectedSubjects", JSON.stringify(subjects));

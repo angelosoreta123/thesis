@@ -1,9 +1,9 @@
 import React from "react";
 import "./Mydeficientsubj.css";
 
-const Mydeficientsubj = ({ selectedSubjects, removeSubject }) => {
+const Mydeficientsubj = ({ selectedSubjects, removeSubject, className }) => {
   return (
-    <div className="defsubjwrapper">
+    <div className={`defsubjwrapper ${className}`}>
       {selectedSubjects &&
         selectedSubjects.map((subject, index) => (
           <div
