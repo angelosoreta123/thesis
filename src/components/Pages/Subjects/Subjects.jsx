@@ -7,9 +7,10 @@ const Subjects = ({ name, subjectcode, onClick }) => {
 
   return (
     <div>
-      <div className="subject" onClick={() => onClick(subjectcode, name)}>
+      <div className="subject">
         <div
           className="subjectcode"
+          onClick={() => onClick(subjectcode, name)}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
