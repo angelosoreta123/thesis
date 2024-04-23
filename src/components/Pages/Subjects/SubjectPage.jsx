@@ -51,7 +51,7 @@ const SubjectPage = () => {
         removeSubject={removeSubject}
       />
       <div>
-        <h1>Subjects</h1>
+        <h1>Subjects</h1> <br />
         <h5>(Click a subject to add in My Deficient Subjects)</h5>
         <div className="subjectwrapper">
           {filteredSubjects.map((subject, index) => (

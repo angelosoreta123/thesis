@@ -22,6 +22,12 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
+.addsign {
+  font-size: 3rem;
+  margin-top: -1rem;
+  opacity: 0.3; /* Adjust the opacity value as needed */
+}
+
 .subjectinfo {
   display: flex;
   align-items: center;
