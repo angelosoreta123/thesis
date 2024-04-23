@@ -52,6 +52,7 @@ const SubjectPage = () => {
       />
       <div>
         <h1>Subjects</h1>
+        <h5>(Click a subject to add in My Deficient Subjects)</h5>
         <div className="subjectwrapper">
           {filteredSubjects.map((subject, index) => (
             <Subjects
