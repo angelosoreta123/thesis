@@ -5,7 +5,13 @@ import all_subject from "../../../assets/Subjectlist";
 import "./Subjects.css";
 
 const SubjectPage = () => {
-  const [selectedSubjects, setSelectedSubjects] = useState([]);
+  const [selectedSubjects, setSelectedSubjects] = useState(
+    JSON.parse(localStorage.getItem("selectedSubjects")) || []
+  );
+
+  const updateLocalStorage = (subjects) => {
+    localStorage.setItem("selectedSubjects", JSON.stringify(subjects));
+  };
 
   const handleSubjectClick = (subjectCode, name) => {
     if (
@@ -17,16 +23,37 @@ const SubjectPage = () => {
         ...selectedSubjects,
         { code: subjectCode, name: name },
       ]);
+      updateLocalStorage(selectedSubjects);
     }
   };
 
+  const removeSubject = (subjectCode, name) => {
+    const updatedSubjects = selectedSubjects.filter(
+      (subject) => !(subject.code === subjectCode && subject.name === name)
+    );
+    setSelectedSubjects(updatedSubjects);
+    updateLocalStorage(updatedSubjects);
+  };
+
+  const filteredSubjects = all_subject.filter(
+    (subject) =>
+      !selectedSubjects.some(
+        (selectedSubject) =>
+          selectedSubject.code === subject.subject_code &&
+          selectedSubject.name === subject.name
+      )
+  );
+
   return (
     <>
-      <Mydeficientsubj selectedSubjects={selectedSubjects} />
+      <Mydeficientsubj
+        selectedSubjects={selectedSubjects}
+        removeSubject={removeSubject}
+      />
       <div>
         <h1>Subjects</h1>
         <div className="subjectwrapper">
-          {all_subject.map((subject, index) => (
+          {filteredSubjects.map((subject, index) => (
             <Subjects
               key={index}
               name={subject.name}
