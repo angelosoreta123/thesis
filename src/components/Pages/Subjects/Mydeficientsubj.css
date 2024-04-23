@@ -5,8 +5,8 @@
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  padding-bottom: 2rem;
+  gap: 6rem;
+  padding-bottom: 5rem;
 }
 
 .defsubjectcode {
@@ -31,8 +31,28 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
-.closesign {
-  font-size: 3rem;
-  margin-top: -1rem;
-  opacity: 0.3; /* Adjust the opacity value as needed */
+.addremove {
+  width: 200px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+#finishbtn,
+#removebtn {
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  font-size: 0.6rem;
+  width: 70px;
+}
+
+#removebtn:hover {
+  box-shadow: 0 0 20px rgba(180, 40, 40, 0.8);
+  background-color: rgba(180, 40, 40, 0.8);
+}
+
+#finishbtn:hover {
+  box-shadow: 0 0 20px rgba(6, 165, 78, 0.8);
+  background-color: rgba(6, 165, 78, 0.8);
 }

@@ -6,16 +6,18 @@ const Deficientsub = () => {
   const storedSubjects =
     JSON.parse(localStorage.getItem("selectedSubjects")) || [];
 
-  // Take only the first 5 subjects if the array length is greater than 5
-  const displayedSubjects = storedSubjects.slice(0, 5);
+  const displayedSubjects = storedSubjects.slice(0, 4);
 
   return (
     <div>
       <div className="card3upper">
         <h2>My Deficient Subjects</h2>
-        <h3>See All</h3>
+        <a href="/Subjects">
+          <h3 id="seeall">See All</h3>
+        </a>
       </div>
       <div className="card3lower">
+        {/* Pass showButtons prop with value true */}
         <Mydeficientsubj
           selectedSubjects={displayedSubjects}
           className="dashboarddefsubj"
