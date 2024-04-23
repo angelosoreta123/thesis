@@ -6,6 +6,7 @@ import "./Subjects.css";
 
 const SubjectPage = () => {
   const [selectedSubjects, setSelectedSubjects] = useState([]);
+  const [finishedSubjects, setFinishedSubjects] = useState([]);
 
   useEffect(() => {
     const storedSubjects = JSON.parse(localStorage.getItem("selectedSubjects"));
@@ -35,6 +36,17 @@ const SubjectPage = () => {
     updateLocalStorage(updatedSubjects);
   };
 
+  const finishedSubject = (code, name) => {
+    const subjectToMove = selectedSubjects.find(
+      (subject) => subject.code === code && subject.name === name
+    );
+    if (subjectToMove) {
+      const updatedFinishedSubjects = [...finishedSubjects, subjectToMove];
+      setFinishedSubjects(updatedFinishedSubjects);
+      removeSubject(code, name);
+    }
+  };
+
   const filteredSubjects = all_subject.filter(
     (subject) =>
       !selectedSubjects.some(
@@ -49,7 +61,19 @@ const SubjectPage = () => {
       <Mydeficientsubj
         selectedSubjects={selectedSubjects}
         removeSubject={removeSubject}
+        finishedSubject={finishedSubject}
       />
+      <h1>Finished Subjects</h1>
+      <div className="finishedsubjwrapper">
+        {finishedSubjects.map((subject, index) => (
+          <div key={index} className="subject">
+            <div className="finishsubjectcode">{subject.code}</div>
+            <div className="finishsubjectinfo">
+              <h3>{subject.name}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
       <div>
         <h1>Subjects</h1> <br />
         <h5>(Click a subject to add in My Deficient Subjects)</h5>
