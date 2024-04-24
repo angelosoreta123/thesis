@@ -23,8 +23,13 @@ const Forgot = () => {
           <button type="submit" className="btn">
             Continue
           </button>
-          <div className="register-link">
-            <p>Already have an account? Login </p>{" "}
+          <div className="login-link">
+            <p>
+              Already have an account?{" "}
+              <a href="/Login">
+                <span>Login</span>
+              </a>{" "}
+            </p>{" "}
           </div>
         </form>
       </div>

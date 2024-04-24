@@ -70,6 +70,12 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   margin: -10px 0px 10px;
 }
 
+.wrapper .remember-forgot span:hover,
+.wrapper .register-link span:hover,
+.wrapper .login-link span:hover {
+  text-decoration: underline;
+}
+
 .remember-forgot label input {
   accent-color: black;
   margin-right: 5px;
@@ -89,4 +95,12 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   display: flex;
   justify-content: center;
   font-size: 14.5px;
+  margin-top: 0.5rem;
+}
+
+.wrapper .login-link {
+  display: flex;
+  justify-content: center;
+  font-size: 14.5px;
+  margin-top: 0.5rem;
 }

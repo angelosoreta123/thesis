@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Header from "../Header/Header";
 import "./AccManage.css";
 
@@ -49,8 +49,10 @@ const Register = () => {
           <button type="submit" className="btn">
             Sign Up
           </button>
-          <div className="register-link">
-            <p>Already have an account? Login</p>
+          <div className="login-link">
+            <p>
+              Already have an account? <span>Login</span>
+            </p>
           </div>
         </form>
       </div>

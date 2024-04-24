@@ -26,14 +26,21 @@ const Login = () => {
             <label>
               <input type="checkbox" /> Remember me
             </label>
-            <span>Forgot Password?</span>
+            <a href="/Forgot">
+              <span>Forgot Password?</span>
+            </a>
           </div>
 
           <button type="submit" className="btn">
             Login
           </button>
           <div className="register-link">
-            <p>Don't have an account? Register</p>
+            <p>
+              Don't have an account?{" "}
+              <a href="/Register">
+                <span>Register</span>
+              </a>
+            </p>
           </div>
         </form>
       </div>
