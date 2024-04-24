@@ -61,9 +61,18 @@ h5 {
   margin: auto;
   display: flex;
   margin-top: 1rem;
-  flex: wrap;
+  flex-wrap: wrap;
   padding-top: 1rem;
+  padding-bottom: 3.5rem;
   border: 2px solid var(--color-border);
+  gap: 5rem;
+}
+
+.finishedsubjwrapper h2 {
+  margin: auto;
+  padding-top: 2rem;
+  color: var(--color-border);
+  font-weight: 900;
 }
 
 .finishsubjectcode {
@@ -83,4 +92,33 @@ h5 {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.nodefcontainer {
+  width: 1720px;
+  height: 300px;
+  border: 2px solid var(--color-border);
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.nodefcontainer h2 {
+  margin: auto;
+  text-align: center;
+  padding-top: 7rem;
+  color: var(--color-border);
+}
+
+#finishremovebtn {
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  font-size: 0.6rem;
+  width: 70px;
+  margin: auto;
+}
+
+#finishremovebtn:hover {
+  box-shadow: 0 0 20px rgba(180, 40, 40, 0.8);
+  background-color: rgba(180, 40, 40, 0.8);
 }

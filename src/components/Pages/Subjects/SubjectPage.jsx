@@ -10,22 +10,38 @@ const SubjectPage = () => {
 
   useEffect(() => {
     const storedSubjects = JSON.parse(localStorage.getItem("selectedSubjects"));
+    const storedFinishedSubjects = JSON.parse(
+      localStorage.getItem("finishedSubjects")
+    );
     if (storedSubjects) {
       setSelectedSubjects(storedSubjects);
     }
+    if (storedFinishedSubjects) {
+      setFinishedSubjects(storedFinishedSubjects);
+    }
   }, []);
 
-  const updateLocalStorage = (subjects) => {
-    localStorage.setItem("selectedSubjects", JSON.stringify(subjects));
+  const updateLocalStorage = (selected, finished) => {
+    localStorage.setItem("selectedSubjects", JSON.stringify(selected));
+    localStorage.setItem("finishedSubjects", JSON.stringify(finished));
   };
 
   const handleSubjectClick = (subjectCode, name) => {
-    const updatedSubjects = [
-      ...selectedSubjects,
-      { code: subjectCode, name: name },
-    ];
-    setSelectedSubjects(updatedSubjects);
-    updateLocalStorage(updatedSubjects);
+    if (
+      !selectedSubjects.some(
+        (subject) => subject.code === subjectCode && subject.name === name
+      ) &&
+      !finishedSubjects.some(
+        (subject) => subject.code === subjectCode && subject.name === name
+      )
+    ) {
+      const updatedSubjects = [
+        ...selectedSubjects,
+        { code: subjectCode, name: name },
+      ];
+      setSelectedSubjects(updatedSubjects);
+      updateLocalStorage(updatedSubjects, finishedSubjects);
+    }
   };
 
   const removeSubject = (subjectCode, name) => {
@@ -33,7 +49,15 @@ const SubjectPage = () => {
       (subject) => !(subject.code === subjectCode && subject.name === name)
     );
     setSelectedSubjects(updatedSubjects);
-    updateLocalStorage(updatedSubjects);
+    updateLocalStorage(updatedSubjects, finishedSubjects);
+  };
+
+  const handleRemoveFinishedSubject = (subjectCode, name) => {
+    const updatedFinishedSubjects = finishedSubjects.filter(
+      (subject) => !(subject.code === subjectCode && subject.name === name)
+    );
+    setFinishedSubjects(updatedFinishedSubjects);
+    updateLocalStorage(selectedSubjects, updatedFinishedSubjects);
   };
 
   const finishedSubject = (code, name) => {
@@ -43,17 +67,27 @@ const SubjectPage = () => {
     if (subjectToMove) {
       const updatedFinishedSubjects = [...finishedSubjects, subjectToMove];
       setFinishedSubjects(updatedFinishedSubjects);
-      removeSubject(code, name);
+      const updatedSelectedSubjects = selectedSubjects.filter(
+        (subject) => !(subject.code === code && subject.name === name)
+      );
+      setSelectedSubjects(updatedSelectedSubjects);
+      updateLocalStorage(updatedSelectedSubjects, updatedFinishedSubjects);
     }
   };
 
-  const filteredSubjects = all_subject.filter(
-    (subject) =>
-      !selectedSubjects.some(
-        (selectedSubject) =>
-          selectedSubject.code === subject.subject_code &&
-          selectedSubject.name === subject.name
+  const isSubjectSelected = (subjectCode, name) => {
+    return (
+      selectedSubjects.some(
+        (subject) => subject.code === subjectCode && subject.name === name
+      ) ||
+      finishedSubjects.some(
+        (subject) => subject.code === subjectCode && subject.name === name
       )
+    );
+  };
+
+  const filteredSubjects = all_subject.filter(
+    (subject) => !isSubjectSelected(subject.subject_code, subject.name)
   );
 
   return (
@@ -65,12 +99,21 @@ const SubjectPage = () => {
       />
       <h1>Finished Subjects</h1>
       <div className="finishedsubjwrapper">
+        {finishedSubjects.length === 0 ? <h2>No Finished Subject</h2> : null}
         {finishedSubjects.map((subject, index) => (
           <div key={index} className="subject">
             <div className="finishsubjectcode">{subject.code}</div>
             <div className="finishsubjectinfo">
               <h3>{subject.name}</h3>
             </div>
+            <button
+              onClick={() =>
+                handleRemoveFinishedSubject(subject.code, subject.name)
+              }
+              id="finishremovebtn"
+            >
+              Remove
+            </button>
           </div>
         ))}
       </div>
@@ -83,7 +126,10 @@ const SubjectPage = () => {
               key={index}
               name={subject.name}
               subjectcode={subject.subject_code}
-              onClick={handleSubjectClick}
+              onClick={() =>
+                handleSubjectClick(subject.subject_code, subject.name)
+              }
+              disabled={isSubjectSelected(subject.subject_code, subject.name)}
             />
           ))}
         </div>
