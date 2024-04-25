@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import Header from "../Header/Header";
+import Header from "./../../components/Header/Header";
 import "./AccManage.css";
 import {
   faCheck,

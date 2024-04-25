@@ -6,9 +6,9 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Semester from "./pages/Semester/Semester";
 import Curriculum from "./pages/Curriculum/Curriculum";
 import MyProfile from "./pages/MyProfile/MyProfile";
-import Login from "./components/AccManage/Login";
-import Register from "./components/AccManage/Register";
-import Forgot from "./components/AccManage/Forgot";
+import Login from "./pages/AccManage/Login";
+import Register from "./pages/AccManage/Register";
+import Forgot from "./pages/AccManage/Forgot";
 import Subjectstab from "./pages/Subjects/Subjectstab";
 
 const router = createBrowserRouter([

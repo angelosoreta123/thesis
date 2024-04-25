@@ -28,10 +28,6 @@
   flex-direction: column;
 }
 
-.defsubjectcode:hover {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-}
-
 .addremove {
   width: 200px;
   display: flex;
