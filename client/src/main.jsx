@@ -10,6 +10,10 @@ import Login from "./pages/AccManage/Login";
 import Register from "./pages/AccManage/Register";
 import Forgot from "./pages/AccManage/Forgot";
 import Subjectstab from "./pages/Subjects/Subjectstab";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
   {

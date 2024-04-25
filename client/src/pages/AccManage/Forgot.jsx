@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./../../components/Header/Header";
 import "./AccManage.css";
-import axios from "../../api/axios";
+import axios from "axios";
 
 const Forgot = () => {
   const [email, setEmail] = useState("");
