@@ -1,11 +1,11 @@
 import React from "react";
 import "././Dashboard.css";
-import Navbar from "../../Navbar/Navbar";
-import Header from "../../Header/Header";
-import Recentsub from "../../RecentSubj/Recentsub";
-import Upcomingclass from "../../UpcomingClass/Upcomingclass";
-import Learningprog from "../../LearningProgress/Learningprog";
-import Deficientsub from "../../DeficientSubj/Deficientsub";
+import Header from "./../../components/Header/Header";
+import Navbar from "./../../components/Navbar/Navbar";
+import Recentsub from "../../components/RecentSubj/Recentsub";
+import Upcomingclass from "../../components/UpcomingClass/Upcomingclass";
+import Learningprog from "../../components/LearningProgress/Learningprog";
+import Deficientsub from "../../components/DeficientSubj/Deficientsub";
 
 function Dashboard() {
   return (

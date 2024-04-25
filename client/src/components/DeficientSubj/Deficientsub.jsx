@@ -1,6 +1,6 @@
 import React from "react";
 import "./Deficientsub.css";
-import Mydeficientsubj from "../Pages/Subjects/Mydeficientsubj";
+import Mydeficientsubj from "../../pages/Subjects/Mydeficientsubj";
 
 const Deficientsub = () => {
   const storedSubjects =

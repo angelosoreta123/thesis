@@ -1,16 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./../src/index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Dashboard from "./components/Pages/Dashboard/Dashboard";
-import Subjects from "./components/Pages/Subjects/Subjects";
-import Semester from "./components/Pages/Semester/Semester";
-import Curriculum from "./components/Pages/Curriculum/Curriculum";
-import MyProfile from "./components/Pages/MyProfile/MyProfile";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Semester from "./pages/Semester/Semester";
+import Curriculum from "./pages/Curriculum/Curriculum";
+import MyProfile from "./pages/MyProfile/MyProfile";
 import Login from "./components/AccManage/Login";
 import Register from "./components/AccManage/Register";
 import Forgot from "./components/AccManage/Forgot";
-import Subjectstab from "./components/Pages/Subjects/Subjectstab";
+import Subjectstab from "./pages/Subjects/Subjectstab";
 
 const router = createBrowserRouter([
   {

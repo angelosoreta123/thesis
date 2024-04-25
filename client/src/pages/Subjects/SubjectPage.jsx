@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Subjects from "./Subjects";
 import Mydeficientsubj from "./Mydeficientsubj";
-import all_subject from "../../../assets/Subjectlist";
+import all_subject from "../../assets/Subjectlist";
 import "./Subjects.css";
 
 const SubjectPage = () => {
