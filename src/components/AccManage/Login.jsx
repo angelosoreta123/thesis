@@ -1,25 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Header/Header";
 import "./AccManage.css";
+import axios from "../../api/axios";
 
 const Login = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-    // Logic nung submission
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post("/Login", {
+        email,
+        password,
+      });
+      if (response.status === 200) {
+        console.log("Login successful");
+      } else {
+        setErrMsg("Invalid email or password");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      setErrMsg("Login failed. Please try again later.");
+    }
   };
 
   return (
     <div>
       <Header />
       <div className="wrapper">
+        {errMsg && <p className="errmsg ">{errMsg}</p>}
         <form onSubmit={handleSubmit}>
           <h1>Login</h1>
           <div className="input-box">
-            <input type="email" placeholder="Email" required />
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <i className="bx bxs-user"></i>
           </div>
           <div className="input-box">
-            <input type="password" placeholder="Password" required />
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <i className="bx bxs-lock"></i>
           </div>
           <div className="remember-forgot">
@@ -30,7 +61,6 @@ const Login = () => {
               <span>Forgot Password?</span>
             </a>
           </div>
-
           <button type="submit" className="btn">
             Login
           </button>

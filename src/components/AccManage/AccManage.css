@@ -49,7 +49,10 @@
   padding-left: 20px;
 }
 
-#uidnote {
+#uidnote,
+#emailnote,
+#pwdnote,
+#confirmpwdnote {
   padding: 5px;
   background-color: var(--color-border);
   border-radius: 10px;
@@ -130,9 +133,9 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   margin: -10px 0px 10px;
 }
 
-.wrapper .remember-forgot span:hover,
-.wrapper .register-link span:hover,
-.wrapper .login-link span:hover {
+.wrapper .remember-forgot span,
+.wrapper .register-link span,
+.wrapper .login-link span {
   text-decoration: underline;
 }
 
@@ -181,4 +184,10 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 
 .regbtn.disabled {
   cursor: not-allowed;
+}
+
+.errmsg {
+  background-color: rgb(223, 42, 42);
+  font-weight: bold;
+  text-align: center;
 }
