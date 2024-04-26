@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./../../components/Header/Header";
 import "./AccManage.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LOGIN_URL = "api/Login";
 
@@ -9,8 +10,9 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
+  const loginUser = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(LOGIN_URL, {
@@ -18,7 +20,7 @@ const Login = () => {
         password,
       });
       if (response.status === 200) {
-        console.log("Login successful");
+        navigate("/"); // Redirect to homepage after successful login
       } else {
         setErrMsg("Invalid email or password");
       }
@@ -36,8 +38,8 @@ const Login = () => {
     <div>
       <Header />
       <div className="wrapper">
-        {errMsg && <p className="errmsg ">{errMsg}</p>}
-        <form onSubmit={handleSubmit}>
+        {errMsg && <p className="errmsg">{errMsg}</p>}
+        <form onSubmit={loginUser}>
           <h1>Login</h1>
           <div className="input-box">
             <input
@@ -67,7 +69,7 @@ const Login = () => {
               <span>Forgot Password?</span>
             </a>
           </div>
-          <button type="submit" className="btn">
+          <button type="submit" className="loginbtn">
             Login
           </button>
           <div className="register-link">

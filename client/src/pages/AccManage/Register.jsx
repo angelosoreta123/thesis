@@ -58,7 +58,7 @@ const Register = () => {
     setErrMsg("");
   }, [user, email, pwd, matchPwd]);
 
-  const handleSubmit = async (e) => {
+  const registerUser = async (e) => {
     e.preventDefault();
 
     try {
@@ -117,7 +117,7 @@ const Register = () => {
             </p>
           </section>
         ) : (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={registerUser}>
             <h1>Create Your Account</h1>
             <div className="reginput-box">
               <input
