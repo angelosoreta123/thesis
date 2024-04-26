@@ -3,6 +3,8 @@ import Header from "./../../components/Header/Header";
 import "./AccManage.css";
 import axios from "axios";
 
+const LOGIN_URL = "api/Login";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +13,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("/Login", {
+      const response = await axios.post(LOGIN_URL, {
         email,
         password,
       });
@@ -22,7 +24,11 @@ const Login = () => {
       }
     } catch (err) {
       console.error("Login error:", err);
-      setErrMsg("Login failed. Please try again later.");
+      if (err.response && err.response.status === 401) {
+        setErrMsg("Invalid email or password");
+      } else {
+        setErrMsg("Login failed. Please try again later.");
+      }
     }
   };
 

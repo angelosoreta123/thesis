@@ -12,7 +12,7 @@ import axios from "axios";
 const NAME_REGEX = /^[A-Za-z]+ [A-Za-z\s]{2,40}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const REGISTER_URL = "/Register";
+const REGISTER_URL = "api/Register";
 
 const Register = () => {
   const userRef = useRef();
@@ -60,13 +60,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const v1 = NAME_REGEX.test(user);
-    const v2 = EMAIL_REGEX.test(email);
-    const v3 = PWD_REGEX.test(pwd);
-    if (!v1 || !v2 || !v3) {
-      setErrMsg("Invalid Entry");
-      return;
-    }
+
     try {
       const response = await axios.post(
         REGISTER_URL,
@@ -76,24 +70,30 @@ const Register = () => {
           withCredentials: true,
         }
       );
+
+      // Handle response based on HTTP status code
       if (response.status === 200) {
-        console.log(response.data);
+        // Registration successful
         setSuccess(true);
+        // Reset form fields
         setUser("");
         setEmail("");
         setPwd("");
         setMatchPwd("");
       } else {
+        // Registration failed
         setErrMsg("Registration Failed");
       }
     } catch (err) {
-      if (!err?.response) {
+      // Handle error responses
+      if (!err.response) {
         setErrMsg("No Server Response");
-      } else if (err.response?.status === 409) {
+      } else if (err.response.status === 409) {
         setErrMsg("Email Taken");
       } else {
         setErrMsg("Registration Failed");
       }
+      // Set focus to error message element
       errRef.current.focus();
     }
   };
@@ -113,7 +113,7 @@ const Register = () => {
           <section>
             <h1>Success!</h1>
             <p>
-              <a href="/Login">Login</a>
+              <a href="/Login">Proceed to Login</a>
             </p>
           </section>
         ) : (
@@ -257,6 +257,7 @@ const Register = () => {
               Password do not match.
             </p>
             <button
+              type="submit"
               className={`regbtn ${
                 !validName || !validEmail || !validPwd || !validMatch
                   ? "disabled"
