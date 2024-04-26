@@ -182,6 +182,14 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   margin-top: 20px;
 }
 
+.regbtn {
+  margin-top: 20px;
+}
+
+.regbtn:hover {
+  opacity: 0.5;
+}
+
 .regbtn.disabled {
   cursor: not-allowed;
 }

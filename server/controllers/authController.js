@@ -1,6 +1,7 @@
 const UserModel = require('../models/user');
 const { hashPassword } = require("../helpers/auth");
 const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken");
 
 // Register a new user
 const register = async (req, res) => {
@@ -32,31 +33,39 @@ const register = async (req, res) => {
 
 // User login (assuming password comparison with hashed password would be done here)
 const login = async (req, res) => {
-    const { email, password } = req.body;
-    try {
-      // Find the user by email in the database
-      const user = await UserModel.findOne({ email });
-      if (!user) {
-        // If user not found, return a 401 (Unauthorized) status
-        return res.status(401).json({ message: "Invalid email or password" });
-      }
-      
-      // Compare the provided password with the hashed password stored in the database
-      const isMatch = await bcrypt.compare(password, user.password);
-  
-      if (isMatch) {
-        // If passwords match, return a 200 (OK) status and success message
-        return res.status(200).json({ message: "Login successful" });
-      } else {
-        // If passwords don't match, return a 401 (Unauthorized) status
-        return res.status(401).json({ message: "Invalid email or password" });
-      }
-    } catch (err) {
-      // Log login error and return a 500 (Internal Server Error) status
-      console.error("Login error:", err);
-      return res.status(500).json({ message: "Login failed. Please try again later." });
+  const { email, password } = req.body;
+  try {
+    // Find the user by email in the database
+    const user = await UserModel.findOne({ email });
+    if (!user) {
+      // If user not found, return a 401 (Unauthorized) status
+      return res.status(401).json({ message: "Invalid email or password" });
     }
-  };
+    
+    // Compare the provided password with the hashed password stored in the database
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (isMatch) {
+      // Create a JWT token with the user information
+      const token = jwt.sign({ email: user.email, id: user._id, name: user.name }, process.env.JWT_HIDDEN, {
+      });
+
+      // Set the token in a cookie (optional, if using cookies for authentication)
+      res.cookie("token", token);
+
+      // Return the token and user data in the response
+      return res.status(200).json({ token, user, message: "Login successful" });
+    } else {
+      // If passwords don't match, return a 401 (Unauthorized) status
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+  } catch (err) {
+    // Log login error and return a 500 (Internal Server Error) status
+    console.error("Login error:", err);
+    return res.status(500).json({ message: "Login failed. Please try again later." });
+  }
+};
+
 
 // Export the register and login functions for use in other modules
 module.exports = {
