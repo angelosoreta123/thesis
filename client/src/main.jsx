@@ -1,5 +1,5 @@
 import React from "react";
-import { createRoot } from "react-dom/client"; // Import createRoot from react-dom/client
+import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Semester from "./pages/Semester/Semester";
@@ -20,12 +20,12 @@ const Main = () => {
     <UserContextProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Subjects" element={<Subjectstab />} />
           <Route path="/Semester" element={<Semester />} />
           <Route path="/Curriculum" element={<Curriculum />} />
           <Route path="/Profilepage" element={<Profilepage />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/Forgot" element={<Forgot />} />
         </Routes>
@@ -34,6 +34,7 @@ const Main = () => {
   );
 };
 
+// Render the Main component within React.StrictMode using createRoot
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Main />

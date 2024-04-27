@@ -10,7 +10,7 @@ const Semester = () => {
     <div>
       <Header />
       <Navbar />
-      <h1>Welcome, TUPM-2X-XXXX! </h1>
+      <h1>Semester</h1>
       <div className="container">
         <div className="cardA">
           <h2 className="semSY">S.Y. 20XX - 20XX</h2>

@@ -4,7 +4,7 @@ import "./AccManage.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const LOGIN_URL = "api/Login";
+const LOGIN_URL = "api/";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -20,7 +20,7 @@ const Login = () => {
         password,
       });
       if (response.status === 200) {
-        navigate("/"); // Redirect to homepage after successful login
+        navigate("/Dashboard");
       } else {
         setErrMsg("Invalid email or password");
       }

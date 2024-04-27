@@ -10,9 +10,9 @@ const Navbar = () => {
     <div>
       <nav className="navBar">
         <ul className="left-side">
-          <li className={pathname === "/" ? "active" : ""}>
-            <a href="/">Dashboard</a>
-            {pathname === "/" && <hr />}
+          <li className={pathname === "/Dashboard" ? "active" : ""}>
+            <a href="/Dashboard">Dashboard</a>
+            {pathname === "/Dashboard" && <hr />}
           </li>
           <li className={pathname === "/Subjects" ? "active" : ""}>
             <a href="/Subjects">Subjects</a>
@@ -28,13 +28,13 @@ const Navbar = () => {
           </li>
         </ul>
         <ul className="right-side">
-          <li className={pathname === "/MyProfile" ? "active" : ""}>
-            <a href="/MyProfile">My Profile</a>
-            {pathname === "/MyProfile" && <hr />}
+          <li className={pathname === "/Profilepage" ? "active" : ""}>
+            <a href="/Profilepage">My Profile</a>
+            {pathname === "/Profilepage" && <hr />}
           </li>
-          <li className={pathname === "/Login" ? "active" : ""}>
-            <a href="/Login">Logout</a>
-            {pathname === "/Login" && <hr />}
+          <li className={pathname === "/Logout" ? "active" : ""}>
+            <a href="/Logout">Logout</a>
+            {pathname === "/Logout" && <hr />}
           </li>
         </ul>
       </nav>
