@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 // Register a new user
 const register = async (req, res) => {
-  const { user, email, pwd } = req.body;
+  const { user, email, course, pwd } = req.body;
   try {
     // Check if the email already exists in the database
     const existingUser = await UserModel.findOne({ email });
@@ -18,7 +18,7 @@ const register = async (req, res) => {
     const hashedPassword = await hashPassword(pwd);
 
     // Create a new user instance with the provided name, email, and hashed password
-    const newUser = new UserModel({ name: user, email, password: hashedPassword });
+    const newUser = new UserModel({ name: user, email, course, password: hashedPassword });
     // Save the new user to the database
     await newUser.save();
 
@@ -47,7 +47,7 @@ const login = async (req, res) => {
 
     if (isMatch) {
       // Create a JWT token with the user information
-      const token = jwt.sign({ email: user.email, id: user._id, name: user.name }, process.env.JWT_HIDDEN, {
+      const token = jwt.sign({ email: user.email, course: user.course, id: user._id, name: user.name }, process.env.JWT_HIDDEN, {
       });
 
       // Set the token in a cookie (optional, if using cookies for authentication)

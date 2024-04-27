@@ -34,6 +34,8 @@ const Register = () => {
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
+  const [course, setCourse] = useState("");
+
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -64,7 +66,7 @@ const Register = () => {
     try {
       const response = await axios.post(
         REGISTER_URL,
-        JSON.stringify({ user, email, pwd }),
+        JSON.stringify({ user, email, pwd, course }),
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
@@ -78,6 +80,7 @@ const Register = () => {
         // Reset form fields
         setUser("");
         setEmail("");
+        setCourse("");
         setPwd("");
         setMatchPwd("");
       } else {
@@ -188,6 +191,35 @@ const Register = () => {
               <FontAwesomeIcon icon={faInfoCircle} id="infoicon" />
               Invalid email type.
             </p>
+            <div className="reginput-box">
+              <select
+                value={course}
+                onChange={(e) => setCourse(e.target.value)}
+                required
+              >
+                <option value="" disabled>
+                  Select your Course
+                </option>
+                <option value="Bachelor of Science in Computer Science - STEM">
+                  Bachelor of Science in Computer Science - STEM
+                </option>
+                <option value="Bachelor of Science in Computer Science - NONSTEM">
+                  Bachelor of Science in Computer Science - NONSTEM
+                </option>
+                <option value="Bachelor of Science in Information Systems - STEM">
+                  Bachelor of Science in Information Systems - STEM
+                </option>
+                <option value="Bachelor of Science in Information Systems - NONSTEM">
+                  Bachelor of Science in Information Systems - NONSTEM
+                </option>
+                <option value="Bachelor of Science in Information Technology - STEM">
+                  Bachelor of Science in Information Technology - STEM
+                </option>
+                <option value="Bachelor of Science in Information Technology - NONSTEM">
+                  Bachelor of Science in Information Technology - NONSTEM
+                </option>
+              </select>
+            </div>
             <div className="reginput-box">
               <input
                 type="password"
