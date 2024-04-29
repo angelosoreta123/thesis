@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Semester from "./pages/Semester/Semester";
 import Curriculum from "./pages/Curriculum/Curriculum";
@@ -14,26 +14,44 @@ import axios from "axios";
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
 
-const Main = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Subjects" element={<Subjectstab />} />
-        <Route path="/Semester" element={<Semester />} />
-        <Route path="/Curriculum" element={<Curriculum />} />
-        <Route path="/Profilepage" element={<Profilepage />} />
-        <Route path="/" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
-        <Route path="/Forgot" element={<Forgot />} />
-      </Routes>
-    </Router>
-  );
-};
+const router = createBrowserRouter([
+  {
+    path: "/Dashboard",
+    element: <Dashboard />,
+  },
+  {
+    path: "/Subjects",
+    element: <Subjectstab />,
+  },
+  {
+    path: "/Semester",
+    element: <Semester />,
+  },
+  {
+    path: "/Curriculum",
+    element: <Curriculum />,
+  },
+  {
+    path: "/Profilepage",
+    element: <Profilepage />,
+  },
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/Register",
+    element: <Register />,
+  },
+  {
+    path: "/Forgot",
+    element: <Forgot />,
+  },
+]);
 
 // Render the Main component within React.StrictMode using createRoot
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Main />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
