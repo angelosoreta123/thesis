@@ -10,27 +10,24 @@ import Register from "./pages/AccManage/Register";
 import Forgot from "./pages/AccManage/Forgot";
 import Subjectstab from "./pages/Subjects/Subjectstab";
 import axios from "axios";
-import { UserContextProvider } from "../context/userContext";
 
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
 
 const Main = () => {
   return (
-    <UserContextProvider>
-      <Router>
-        <Routes>
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/Subjects" element={<Subjectstab />} />
-          <Route path="/Semester" element={<Semester />} />
-          <Route path="/Curriculum" element={<Curriculum />} />
-          <Route path="/Profilepage" element={<Profilepage />} />
-          <Route path="/" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
-          <Route path="/Forgot" element={<Forgot />} />
-        </Routes>
-      </Router>
-    </UserContextProvider>
+    <Router>
+      <Routes>
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Subjects" element={<Subjectstab />} />
+        <Route path="/Semester" element={<Semester />} />
+        <Route path="/Curriculum" element={<Curriculum />} />
+        <Route path="/Profilepage" element={<Profilepage />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/Forgot" element={<Forgot />} />
+      </Routes>
+    </Router>
   );
 };
 
